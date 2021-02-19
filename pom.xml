@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+<!-- Coordonees Maven projet Parent--> 
+  <groupId>com.objis.demomaven</groupId>
+  <artifactId>monappli</artifactId>
+  <version>1.0-SNAPSHOT</version>
+<!-- Packaging du projet Parent = POM--> 
+  <packaging>pom</packaging>
+
+  <name>monappli</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>15</maven.compiler.source>
+    <maven.compiler.target>15</maven.compiler.target>
+  </properties>
+ 
+ <!-- Dependences du parent . A optimiser avec section DependencyManagement--> 
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <scm>
+    <connection>scm:git:file://C:\Users\Amelie\Documents\Cours\Master\ILW\tp5\monappli</connection>
+  </scm>
+  
+  <build>
+    <pluginManagement>      <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <url>http://localhost:8080/</url>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+  <!-- Les modules du projet : domaine + dao + service + web--> 
+  <modules>
+    <module>monappli-domaine</module>
+    <module>monappli-dao</module>
+    <module>monappli-web</module>
+    <module>monappli-service</module>
+  </modules>
+</project>
